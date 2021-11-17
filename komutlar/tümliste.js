@@ -12,11 +12,11 @@ module.exports = {
             const m = res.map((a) => a.link).join("\n")
             interaction.reply({ embeds: [new MessageEmbed().setDescription(m)] })
            } catch (err) {
-               console.error(err)
+               interaction.reply('Link bulunamadı')
            }
         }
         else{
-            interaticon.reply('Bu komut sadece bot galiştiricelri kullanabilir')
+            interaction.reply('Bu komut sadece bot galiştiricelri kullanabilir')
         }
        
        
