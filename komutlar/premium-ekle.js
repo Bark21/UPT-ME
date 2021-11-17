@@ -12,6 +12,8 @@ module.exports = {
         },
     ],
     run: async (client, interaction) => {
+      const {botsahip} = require("../config.json");
+ if(interaction.member.id == botsahip){
         const üye = interaction.options.getMember('üye');
         const c = await premium.findOne({ user: üye.id })
         if (!c) {
@@ -20,5 +22,9 @@ module.exports = {
         } else {
             return interaction.reply({ content: "Bu kullanıcının zaten Premium üyeliği bulunmakta"})
         }
-    } 
+    } else{
+            interaction.reply('Bu komut sadece bot sahipleri kullanabilir')
+        }
+        
+    }
 };

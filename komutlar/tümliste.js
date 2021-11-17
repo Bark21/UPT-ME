@@ -1,11 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 const links = require("../models/links");
+const {botsahip} = require("../config.json");
 module.exports = {
 
     description: 'Sistemde kayıtlı linkler',
    
     run: async (client, interaction) => {
-        if(interaction.member.id == "586822327568695317"){
+        if(interaction.member.id == botsahip){
            try {
             const res = await links.find()
    
@@ -16,7 +17,7 @@ module.exports = {
            }
         }
         else{
-            interaction.reply('Bu komut sadece bot galiştiricelri kullanabilir')
+            interaction.reply('Bu komut sadece bot sahipleri kullanabilir')
         }
        
        

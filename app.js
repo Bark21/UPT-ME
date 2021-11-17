@@ -4,9 +4,15 @@ const fs = require("fs");
 const db = require("mongoose");
 const fetch = require("node-fetch");
 const synchronizeSlashCommands = require('discord-sync-commands');
-db.connect("mongodb+srv://videobot:videobot@cluster0.x24lr.mongodb.net/gweepvideotest").then(() => {
+const {mongodb}=require("./config.json");
+
+
+//////////////////////////////// MONGODB URL //////////////////////////
+db.connect(mongodb).then(() => {
     console.log("Mongoya Bağlanıldı");
 }).catch(console.log("Mongoose hata"));
+
+
 const {token} = require("./config.json");
 client.commands = new Collection();
 fs.readdir("./komutlar/", (_err, files) => {
